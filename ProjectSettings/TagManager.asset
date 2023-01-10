@@ -41,8 +41,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2674607161
+    locked: 0
   - name: Roads
     uniqueID: 2805409947
+    locked: 0
+  - name: Indoor Walls
+    uniqueID: 789622681
     locked: 0
   - name: Houses
     uniqueID: 1279828459
@@ -50,9 +56,21 @@ TagManager:
   - name: Environment
     uniqueID: 1230109009
     locked: 0
+  - name: Tree Roots
+    uniqueID: 586293039
+    locked: 0
   - name: Player
     uniqueID: 154583831
     locked: 0
   - name: Trees
     uniqueID: 362405617
+    locked: 0
+  - name: Indoor Wall Dec
+    uniqueID: 3243631583
+    locked: 0
+  - name: Indoor Decoration
+    uniqueID: 552426165
+    locked: 0
+  - name: Indoor Decoration Child
+    uniqueID: 1733465491
     locked: 0
