@@ -17,7 +17,7 @@ public class AnimationController : MonoBehaviour
     }
     private void AnimateMovement()
     {
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        if ((Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) && !Player.Instance.isOnDialogue && !Player.Instance.isOnFade && !Player.Instance.isOnInventory && !Player.Instance.isOnShopInventory)
         {
             if (Input.GetAxis("Horizontal") > 0)
             {

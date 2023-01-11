@@ -3,12 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Door Interactions/Enter
+  - Door Interactions/Exit
+  - NPC
+  - NPC Interact Zone
+  - Clothes Shop Item
+  - Shopping Cart Button
+  - Close Shop Button
+  - Cash Text UI
+  - Player Inventory Button
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NPC
   - Water
   - UI
   - 
@@ -47,9 +56,6 @@ TagManager:
   - name: Roads
     uniqueID: 2805409947
     locked: 0
-  - name: Indoor Walls
-    uniqueID: 789622681
-    locked: 0
   - name: Houses
     uniqueID: 1279828459
     locked: 0
@@ -59,11 +65,11 @@ TagManager:
   - name: Tree Roots
     uniqueID: 586293039
     locked: 0
-  - name: Player
-    uniqueID: 154583831
+  - name: NPC
+    uniqueID: 849696975
     locked: 0
-  - name: Trees
-    uniqueID: 362405617
+  - name: Indoor Walls
+    uniqueID: 789622681
     locked: 0
   - name: Indoor Wall Dec
     uniqueID: 3243631583
@@ -73,4 +79,13 @@ TagManager:
     locked: 0
   - name: Indoor Decoration Child
     uniqueID: 1733465491
+    locked: 0
+  - name: Player
+    uniqueID: 154583831
+    locked: 0
+  - name: Trees
+    uniqueID: 362405617
+    locked: 0
+  - name: UI
+    uniqueID: 492390461
     locked: 0

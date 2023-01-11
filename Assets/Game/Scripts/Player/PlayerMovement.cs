@@ -17,7 +17,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        RigidBody.velocity = GetInputAndDirection() * Speed;
+        if (!Player.Instance.isOnDialogue && !Player.Instance.isOnFade && !Player.Instance.isOnInventory && !Player.Instance.isOnShopInventory)
+        {
+            RigidBody.velocity = GetInputAndDirection() * Speed;
+        }
+        else
+        {
+            RigidBody.velocity = Vector2.zero;
+        }
     }
     private Vector2 GetInputAndDirection()
     {

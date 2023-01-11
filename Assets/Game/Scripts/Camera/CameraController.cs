@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class CameraController : MonoBehaviour
 {
     [Tooltip("The player to follow")]
-    private Transform Player;
+    private Transform Target;
 
     [Tooltip("The tilemap to follow")]
     private float xMax, xMin, yMax, yMin;
@@ -23,7 +23,11 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        FindPlayer();
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            FindPlayer();
+            SetDefaultPositionToPlayer();
+        }
         SetTiles();
     }
     void LateUpdate()
@@ -32,11 +36,20 @@ public class CameraController : MonoBehaviour
     }
     private void FindPlayer()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        Target = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void FollowPlayer()
     {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(Mathf.Clamp(Player.position.x, xMin, xMax), Mathf.Clamp(Player.position.y, yMin, yMax), CamZ), smoothTime);
+        if (Player.Instance == null) return;
+
+        if (!Player.Instance.isOnFade && Target != null)
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(Mathf.Clamp(Target.position.x, xMin, xMax), Mathf.Clamp(Target.position.y, yMin, yMax), CamZ), smoothTime);
+        }
+    }
+    private void SetDefaultPositionToPlayer()
+    {
+        transform.position = new Vector3(Target.position.x, Target.position.y, CamZ);
     }
     private void SetTiles()
     {
