@@ -11,7 +11,7 @@ public class InteractionController : MonoBehaviour
         {
             Interact();
         }
-        if (Input.GetKeyDown(KeyCode.I) && !Player.Instance.isOnDialogue && !Player.Instance.isOnFade && !Player.Instance.isOnShopInventory)
+        if (Input.GetKeyDown(KeyCode.I) && !Player.Instance.isOnDialogue && !Player.Instance.isOnFade && !Player.Instance.isOnShopInventory && !Player.Instance.isDraggingItem)
         {
             if (PlayerInventoryManager.Instance.ReturnCanvasIsActive())
             {
@@ -24,6 +24,11 @@ public class InteractionController : MonoBehaviour
                 PlayerInventoryManager.Instance.PutItemsOnPlayerInventoryUI();
                 Player.Instance.isOnInventory = true;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) && PlayerInventoryManager.Instance.ReturnCanvasIsActive())
+        {
+            PlayerInventoryManager.Instance.SetActiveCanvas(false);
+            Player.Instance.isOnInventory = false;
         }
     }
     private void Interact()

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1410bd0baefb5ed4cb29b0515cbd61fe, type: 3}
   m_Name: Purple Fedora Hat Item
   m_EditorClassIdentifier: 
-  name: Purple Fedora Hat
+  name: Purple Fedora Hat Item
   icon: {fileID: 21300000, guid: 0d9c2813d05c16e46b25f26facd0a5d5, type: 3}
-  isDefaultItem: 0
+  overrideAnimator: {fileID: 9100000, guid: 56ce183faa934444c902a64934b3920a, type: 2}
+  isSold: 0
+  isOnInventory: 0
   price: 400
+  type: Head

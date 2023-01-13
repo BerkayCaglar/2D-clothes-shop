@@ -7,10 +7,9 @@ public class UIManager : MonoBehaviour
     private List<TMP_Text> cashTextsUI = new List<TMP_Text>();
     [SerializeField]
     private GameObject CashUI;
-    public static UIManager Instance { get; set; }
-    void Awake()
+    public static UIManager Instance;
+    public void Awake()
     {
-        Player.Instance.onValueChangedCallback += UpdateUI;
         if (Instance == null)
         {
             Instance = this;
@@ -20,13 +19,8 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
-    private void Start()
-    {
-
-    }
-    public void UpdateUI(int cash, bool isNotEnoughCash)
+    public void UpdateUI(int cash, bool isNotEnoughCash = false)
     {
         if (isNotEnoughCash)
         {
@@ -58,5 +52,9 @@ public class UIManager : MonoBehaviour
         {
             CashUI = GameObject.Find("Cash Parent");
         }
+    }
+    public void SetActiveShopCartIcon()
+    {
+        GameObject.Find("On Desk Canvas").transform.GetChild(0).gameObject.SetActive(true);
     }
 }

@@ -31,11 +31,41 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (transform.childCount > 0)
+        if (transform.childCount == 0)
         {
             GameObject dropped = eventData.pointerDrag;
-            DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
-            draggableItem.parentAfterDrag = transform;
+            string droppedGameObjectSpriteName = dropped.GetComponent<Image>().sprite.name;
+            string droppedGameObjectType = PlayerInventoryManager.Instance.ReturnItemTypeByName(droppedGameObjectSpriteName);
+            RuntimeAnimatorController droppedGameObjectAnimator = PlayerInventoryManager.Instance.ReturnItemAnimatorByName(droppedGameObjectSpriteName);
+
+            if (transform.parent.CompareTag("Eq Inventory Button"))
+            {
+                if ((name == "Item Head Slot" && droppedGameObjectType == "Head") ||
+                (name == "Item Body Slot" && droppedGameObjectType == "Body") ||
+                (name == "Item Feet Slot" && droppedGameObjectType == "Feet"))
+                {
+                    DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
+                    draggableItem.parentAfterDrag = transform;
+                    transform.parent.GetChild(3).gameObject.SetActive(false);
+                    AnimationController.Instance.SetRightAnimatorForClothes(droppedGameObjectAnimator, droppedGameObjectType, true);
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
+                if (draggableItem.parentAfterDrag.parent.CompareTag("Eq Inventory Button"))
+                {
+                    AnimationController.Instance.SetRightAnimatorForClothes(droppedGameObjectAnimator, droppedGameObjectType, false);
+                }
+                draggableItem.parentAfterDrag = transform;
+
+                return;
+            }
         }
     }
     public void Clicked()
@@ -51,7 +81,7 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 transform.parent.transform.GetChild(1).gameObject.SetActive(false);
             }
         }
-        else if (CompareTag("Shopping Cart Button"))
+        else if (CompareTag("Shopping Cart Button") && !Player.Instance.isOnInventory)
         {
             PlayerInventoryManager.Instance.CheckPlayerInventoryUIIsActive();
             ClothesShopCanvas.SetActive(true);
@@ -62,19 +92,5 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             ClothesShopCanvas.SetActive(false);
             Player.Instance.isOnShopInventory = false;
         }
-        /*
-        else if (CompareTag("Player Inventory Button"))
-        {
-            transform.parent.GetChild(2).gameObject.SetActive(true);
-        }
-        else if (name == "Equip")
-        {
-            transform.parent.gameObject.SetActive(false);
-        }
-        else if (name == "Cancel")
-        {
-            transform.parent.gameObject.SetActive(false);
-        }
-        */
     }
 }

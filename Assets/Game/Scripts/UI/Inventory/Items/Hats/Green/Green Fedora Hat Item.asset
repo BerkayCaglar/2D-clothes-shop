@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1410bd0baefb5ed4cb29b0515cbd61fe, type: 3}
   m_Name: Green Fedora Hat Item
   m_EditorClassIdentifier: 
-  name: Green Fedora Hat
+  name: Green Fedora Hat Item
   icon: {fileID: 21300000, guid: ba4e50644caaf6542b2fa2d5a465bbb5, type: 3}
-  isDefaultItem: 0
+  overrideAnimator: {fileID: 9100000, guid: 4c60b7385a50c3540a5fffb0d22add2f, type: 2}
+  isSold: 0
+  isOnInventory: 0
   price: 200
+  type: Head

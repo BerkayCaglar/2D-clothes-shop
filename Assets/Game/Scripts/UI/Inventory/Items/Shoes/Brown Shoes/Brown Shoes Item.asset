@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1410bd0baefb5ed4cb29b0515cbd61fe, type: 3}
+  m_Name: Brown Shoes Item
+  m_EditorClassIdentifier: 
+  name: Brown Shoes Item
+  icon: {fileID: 21300000, guid: c34b190e4e393f24d9bf68eff2bc43fb, type: 3}
+  overrideAnimator: {fileID: 9100000, guid: 19711ba42ca1617438e78b3b97b3791d, type: 2}
+  isSold: 0
+  isOnInventory: 0
+  price: 200
+  type: Feet

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1410bd0baefb5ed4cb29b0515cbd61fe, type: 3}
   m_Name: Green Christmas Hat Item
   m_EditorClassIdentifier: 
-  name: Green Christmas Hat
+  name: Green Christmas Hat Item
   icon: {fileID: 21300000, guid: 43ab3f68bf438bb41af39f39a5c13833, type: 3}
-  isDefaultItem: 0
+  overrideAnimator: {fileID: 9100000, guid: 8ce059467a1727a4baa09e27c260b041, type: 2}
+  isSold: 0
+  isOnInventory: 0
   price: 400
+  type: Head

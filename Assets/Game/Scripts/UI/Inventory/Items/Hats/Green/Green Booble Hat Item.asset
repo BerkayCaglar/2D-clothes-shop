@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1410bd0baefb5ed4cb29b0515cbd61fe, type: 3}
   m_Name: Green Booble Hat Item
   m_EditorClassIdentifier: 
-  name: Green Bobble Hat
+  name: Green Bobble Hat Item
   icon: {fileID: 21300000, guid: bac97a226bd91f44c9d0bdbbfc4afcb2, type: 3}
-  isDefaultItem: 0
+  overrideAnimator: {fileID: 9100000, guid: 12e24e9149c280d4b943e631b6f4adfa, type: 2}
+  isSold: 0
+  isOnInventory: 0
   price: 100
+  type: Head

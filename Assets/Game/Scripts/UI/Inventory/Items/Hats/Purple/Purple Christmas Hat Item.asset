@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1410bd0baefb5ed4cb29b0515cbd61fe, type: 3}
   m_Name: Purple Christmas Hat Item
   m_EditorClassIdentifier: 
-  name: Purple Christmas Hat
+  name: Purple Christmas Hat Item
   icon: {fileID: 21300000, guid: bb4befdbbf04e0a458bfa6f2898de6c6, type: 3}
-  isDefaultItem: 0
+  overrideAnimator: {fileID: 9100000, guid: 32d6a1984f8b188448fb0ce9e28a825e, type: 2}
+  isSold: 0
+  isOnInventory: 0
   price: 600
+  type: Head

@@ -31,7 +31,10 @@ public class SceneController : MonoBehaviour
     }
     private void ChangedActiveScene(Scene current, Scene next)
     {
-        UIManager.Instance.GetCashTextsUI();
-        Player.Instance.InvokeCashUpdate(Player.Instance.cash);
+        if (next.name == "Clothes Shop")
+        {
+            UIManager.Instance.GetCashTextsUI();
+            Player.Instance.InvokeCashUpdate(Player.Instance.cash);
+        }
     }
 }

@@ -7,16 +7,15 @@ using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
-    public static Player Instance { get; set; }
+    public static Player Instance;
     public bool isOnFade { get; set; }
     public bool isOnDialogue { get; set; }
     public bool isOnShopInventory { get; set; }
     public bool isOnInventory { get; set; }
     public bool isInZone { get; set; }
-    public int cash = 1000;
-
-    public delegate void OnValueChanged(int cash, bool isNotEnoughCash = false);
-    public OnValueChanged onValueChangedCallback;
+    public bool isDraggingItem { get; set; }
+    public int cash { get; set; } = 4000;
+    private SpriteRenderer HeadSocketSpriteRenderer, BodySocketSpriteRenderer, FeetSocketSpriteRenderer;
     private void Awake()
     {
         DontDestroyThePlayerOnLoad();
@@ -24,6 +23,13 @@ public class Player : MonoBehaviour
     private void Start()
     {
         InvokeCashUpdate(this.cash);
+        FindPlayerSpriteSockets();
+    }
+    private void FindPlayerSpriteSockets()
+    {
+        HeadSocketSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        BodySocketSpriteRenderer = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        FeetSocketSpriteRenderer = transform.GetChild(2).GetComponent<SpriteRenderer>();
     }
     private void DontDestroyThePlayerOnLoad()
     {
@@ -41,7 +47,7 @@ public class Player : MonoBehaviour
     {
         if (-cash > this.cash)
         {
-            onValueChangedCallback.Invoke(this.cash, true);
+            UIManager.Instance.UpdateUI(this.cash, true);
             return false;
         }
         this.cash += cash;
@@ -51,6 +57,6 @@ public class Player : MonoBehaviour
 
     public void InvokeCashUpdate(int cash)
     {
-        onValueChangedCallback.Invoke(cash);
+        UIManager.Instance.UpdateUI(cash);
     }
 }
