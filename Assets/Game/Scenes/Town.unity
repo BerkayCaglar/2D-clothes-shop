@@ -12357,7 +12357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3babd3c56d3b9464eaeaf18314cdc14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothTime: 0.005
+  smoothTime: 0.01
   Tilemap: {fileID: 361346407}
 --- !u!1 &542413962
 GameObject:
